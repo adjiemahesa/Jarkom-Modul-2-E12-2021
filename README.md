@@ -3,7 +3,7 @@
 <hr/>  
 
 #### Anggota Kelompok :
- * Adjie
+ * Rahadian Adjie Mahesa &nbsp;(05111940000221)
  * Luthfi
  * Afifan Syafaqi Yahya &nbsp; (05111940000234)  
 
@@ -160,6 +160,39 @@ service bind9 restart
 ![(no3)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139473812-66667445-c7ec-4cad-8c28-d5e1d131e682.png)  
   
 ## Soal 4  
+Buat juga reverse domain untuk domain utama.  
+**Pembahasan :**
+1. Membuka file */etc/bind/ named.conf.local* pada EniesLobby menggunakan `nano /etc/bind/named.conf.local`, lalu tambahkan pada fie tersebut konfigurasi reverse dari 3 byte awal dari IP yang ingin dilakukan reverse DNS.  
+```
+zone "2.35.10.in-addr.arpa" {
+   type master;
+   file "/etc/bind/kaizoku/2.35.10.in-addr.arpa";
+};
+```  
+![(no4)EniesLobby-named-conf-local](https://user-images.githubusercontent.com/75328763/139475311-42de4f13-17a4-406b-95a9-6a994e0591f1.png)  
+  
+2. Copykan file *db.local* pada path */etc/bind* ke dalam folder **kaizoku** yang baru saja dibuat dan ubah namanya menjadi **2.35.10.in-addr.arpa** menggunakan command:  
+```
+cp /etc/bind/db.local /etc/bind/kaizoku/2.35.10.in-addr.arpa
+```  
+  
+3. Edit file **2.35.10.in-addr.arpa** menjadi seperti berikut:  
+![(no4)EniesLobby-2-35-10-in-addr-arp](https://user-images.githubusercontent.com/75328763/139475939-12db42f5-8bf2-4133-af05-da1ce9b18de8.png)  
+Kemudian lakukan restar bidn9 nya menggunakan command `service restart bind9 restart'.  
+  
+4. Untuk mengecheck apakah konfigurasinya sudah benar, lakukan perintah-perintah berikut pada node client:  
+&nbsp;* Ubah nameserver pada file */etc/resolcv.conf* ke nameserver Foosha(192.168.122.1) dengan command `echo nameserver 192.168.122.1 > /etc/resolv.conf` agar dapat mengakses internet.  
+&nbsp;* Install package *dnsutils* dengan melakukan command `apt-get install dnsutils`.  
+&nbsp;* Kembalikan nameserver pada file */etc/resolv.conf* ke nameserver EniesLobby menggunakan command `echo nameserver 10.35.2.2 > /etc/resolv.conf`.  
+&nbsp;* Check dilakukan dengan menggunakan perintah berikut untuk memastikan konfigurasi sudah benar. IP yang digunakan adalah IP EniesLobby.  
+```
+host -t PTR 10.35.2.2
+```  
+Berikut adalah hasil Konfigurasinya:  
+![(no4)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139477851-d675b5f2-ee5c-4ee7-b83a-6380b6f3e8cc.png)  
+  
+## Soal 5  
+
 
 
 
