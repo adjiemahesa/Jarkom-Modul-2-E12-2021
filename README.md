@@ -235,6 +235,46 @@ nameserver 10.36.2.3
 &nbsp;* Lalu lakukan `ping franky.E12.com` pada node client.  
   
 ## Soal 6  
+Setelah itu terdapat subdomain *mecha.franky.E12.com* dengan alias *www.mecha.franky.E12.com* yang didelegasikan dari EniesLobby ke Water7 dengan IP menuju ke Skypie dalam folder **sunnygo**  
+  
+**Pembahasan :**  
+1. Pada EniesLobby, edit file */etc/bind/kaizoku/franky.E12.com* menggunakan command `nano /etc/bind/kaizoku/franky.E12.com` dan ubah konfigurasi sebagai berikut:  
+![(no6)EniesLobby-franky-E12-com](https://user-images.githubusercontent.com/75328763/139481920-158509ad-d124-45ef-990f-bbb45a33c792.png)  
+  
+2. Berikutnya edit file */etc/bind/named.conf.options* pada EniesLobby menggunakan command `nano /etc/bind/named.conf.options` setelah itu edit isinya sebagaimana berikut:  
+![(no6)EniesLobby-named-conf-options](https://user-images.githubusercontent.com/75328763/139482620-1c696f63-0393-4c80-909f-d7fdb36cb303.png)  
+  
+3. Kemudian edit isi dari file */etc/bind/named.conf.local* menjadi seperti gambar beriikut:  
+![(no6)EniesLobby-named-conf-local](https://user-images.githubusercontent.com/75328763/139483119-dc13533a-e5c3-4944-beb5-b9664a9be224.png)  
+Lalu restart bind9 menggunakan command `service bind9 restart`.  
+  
+4. Pada console node Water7, edit file */etc/bind/named.conf.options* sebagaimana gambar berikut:  
+![(no6)Water7-named-conf-options](https://user-images.githubusercontent.com/75328763/139483688-9aca1eeb-5ecc-40b4-b20f-2e5ddc8e6009.png)  
+  
+5. Lalu edit juga file */etc/bind/named.conf.local* pada console Water7 menjadi sebagaimana gambar berikut:  
+![(no6)Water7-named-conf-local](https://user-images.githubusercontent.com/75328763/139484496-c85a55dc-ab01-4e85-b62a-f506a6302f4b.png)  
+  
+6. Kemudian buat direktori baru dengan nama **sunygo** pada Water7.
+```
+mkdir /etc/bind/sunnygo
+```  
+  
+7. Copy db.local ke direktori **sunnygo** dan edit namanya menjadi *mecha.franky.E12.com* menggunakan command berikut:  
+```
+cp /etc/bind/db.local /etc/bind/sunnygo/mecha.franky.E12.com
+```  
+    
+8. Lalu edit file *mecha.franky.E12.com* tersebut menggunakan command `nano /etc/bind/sunnygo/mecha.franky.E12.com` menjadi seperti gambar berikut:  
+![(no6)Water7-mecha-franky-E12-com](https://user-images.githubusercontent.com/75328763/139485494-c3d9a6ca-d4d8-4235-a8c1-1ccffcb3407a.png)  
+Lalu restart bind9 menggunakan command `service bind9 restart`.  
+  
+9. Untuk testing, dengan menggunakan `ping mecha.franky.E12.com` dan `ping www.mecha.franky.E12.com` pada node client.   
+![(no6)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139486488-152dc4c0-00e1-41f2-b29b-956281d63c84.png)  
+  
+## Soal 7
+
+
+
 
 
 
