@@ -272,6 +272,18 @@ Lalu restart bind9 menggunakan command `service bind9 restart`.
 ![(no6)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139486488-152dc4c0-00e1-41f2-b29b-956281d63c84.png)  
   
 ## Soal 7
+Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Water7 dengan nama *general.mecha.franky.E12.com* dengan alias *www.general.mecha.franky.E12.com* yang mengarah ke Skypie  
+  
+**Pembahasan :**
+1. Edit file */etc/bind/sunnygo/mecha.franky.E12.com* pada Water7 menggunakan command `nano /etc/bind/sunnygo/mecha.franky.E12.com` lalu tambahkan subdomain untuk file tersebut yang mengarah pada Skypie.  
+![(no7)Water7-mecha-franky-E12-com](https://user-images.githubusercontent.com/75328763/139487636-204b69f6-3481-4041-912c-ff85368cc08b.png)  
+Lalu restart bind9 dengan command `service bind9 restart`.  
+  
+2. Lakukan testing dengan `ping general.mecha.franky.E12.com` dan `ping www.general.mecha.franky.E12.com` pada node client.  
+![(no7)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139488034-d7da0cbb-0ff2-45ad-bef7-a8346d9e7b6b.png)  
+  
+## Soal 8  
+
 
 
 
