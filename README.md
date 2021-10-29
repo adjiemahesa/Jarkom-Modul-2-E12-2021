@@ -192,7 +192,49 @@ Berikut adalah hasil Konfigurasinya:
 ![(no4)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139477851-d675b5f2-ee5c-4ee7-b83a-6380b6f3e8cc.png)  
   
 ## Soal 5  
-
+Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak, maka buat Water7 sebagai DNS Slave untuk domain utama.  
+  
+**Pembahasan :**
+1. Edit isi file */etc/bind/named.conf.local* pada EniesLobby sebagai berikut:  
+```
+zone "franky.E12.com" {
+   type master;
+   notify yes;
+   also-notify { 10.35.2.3; }; // Masukan IP Water7 tanpa tanda petik
+   allow-transfer { 10.35.2.3; }; // Masukan IP Water7 tanpa tanda petik
+   file "/etc/bind/kaizoku/franky.E12.com";
+};
+```  
+![(no5)EniesLobby-named-conf-local](https://user-images.githubusercontent.com/75328763/139478579-53dba3c0-50be-4120-af38-c69143779c7a.png)  
+Lalu lakukan restart bind9 denagn command `service bind9 restart`.  
+  
+2. Membuka console pada node Water7 kemudian update install bind9.
+```
+apt-get update
+apt-get install bind9 -y
+```  
+  
+3. Kemudian buka file */etc/bind/namad.conf.local* pada Water7 dan edit konfigurasinya sebagaimana berikut:  
+```
+zone "franky.E12.com" {
+   type slave;
+   masters { 10.35.2.2; }; // Masukan IP EniesLobby tanpa tanda petik
+   file "/var/lib/bind/franky.E12.com";
+};
+```  
+![(no5)Water7-named-conf-local](https://user-images.githubusercontent.com/75328763/139480976-cea0849e-424d-42d8-bad4-a56943fd89d6.png)  
+Lalu lakukan restart bind9 denagn command `service bind9 restart`.  
+  
+4. Untuk melakukan testing, dapat dilakukan dengan:  
+&nbsp;* Matikan service pada EniesLobby dengan menggunakan command `service bind9 stop`.  
+&nbsp;* Buka console pada node client kemudian tambahkan nameserver Water7 pada file */etc/resolv.conf*.
+```
+nameserver 10.36.2.2
+nameserver 10.36.2.3
+```  
+&nbsp;* Lalu lakukan `ping franky.E12.com` pada node client.  
+  
+## Soal 6  
 
 
 
