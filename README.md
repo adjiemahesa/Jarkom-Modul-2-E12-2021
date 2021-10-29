@@ -283,10 +283,54 @@ Lalu restart bind9 dengan command `service bind9 restart`.
 ![(no7)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139488034-d7da0cbb-0ff2-45ad-bef7-a8346d9e7b6b.png)  
   
 ## Soal 8  
-
-
-
-
+Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pertama dengan webserver *www.franky.E12.com.* Pertama, luffy membutuhkan webserver dengan DocumentRoot pada */var/www/franky.E12.com.*  
+  
+**Pembahasan :**  
+1. Install *apache2* pada Skypie untuk membuat server, beberapa command untuk instalasi sebagai berikut:  
+```
+apt-get update
+apt-get install wget
+apt-get install apache2 -y
+apt-get install libapache2-mod-php7.0 -y
+apt-get install unzip
+```  
+  
+2. Copy file */etc/apache2/sites-available/franky.E12.com.conf* untuk file konfigurasi website pada *franky.E12.com* menggunakan command:  
+```
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/franky.E12.com.conf
+```  
+Lalu edit file */etc/apache2/sites-available/franky.E12.com.conf* dan tambahkan kondigurasi sebagai berikut:  
+```
+ServerName franky.e14.com
+ServerAlias www.franky.e14.com
+DocumentRoot /var/www/franky.e14.com
+```  
+![(no8)Skypie-franky-E12-com-conf](https://user-images.githubusercontent.com/75328763/139490000-811a00c5-2c49-4665-930d-fff2389a4d72.png)  
+Lalu aktifkan konfigurasi **franky.E12.com.** tersebut dengan command:  
+```
+a2ensite franky.E12.com.conf
+```  
+  
+3. Donwload asset yang telah disediakan soal, kemudia extraxt *franky.zip* tersebut dan pindahkan ke */var/www/franky.E12.com* dengan command-command berikut:  
+```
+wget https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/franky.zip
+unzip franky.zip
+mv franky /var/www/franky.E12.com
+```  
+Setelah itu, lakukan restart apache untuk menerapkan konfigurasinya.  
+```
+service apache2 restart
+```  
+  
+4. Untuk testingnya, install *lynx* pada node client(Alabasta) untuk testing web seperti command berikut:  
+```
+apt-get update
+apt-get install lynx
+```  
+Setelah itu, lakukan testing `lynx franky.E12.com` dan `lynx www.franky.E12.com` pada node client tersebut.  
+![image](https://user-images.githubusercontent.com/75328763/139491919-753af896-1703-4f48-a277-1f6cacab69a1.png)  
+  
+## Soal 9
 
 
 
