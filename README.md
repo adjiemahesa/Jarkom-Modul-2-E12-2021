@@ -3,7 +3,7 @@
 <hr/>  
 
 #### Anggota Kelompok :
- * Rahadian Adjie Mahesa &nbsp;(05111940000221)
+ * Adjie
  * Luthfi
  * Afifan Syafaqi Yahya &nbsp; (05111940000234)  
 
@@ -86,7 +86,7 @@ lalu Kemudian, restart seluruh node.
 
 ## Soal 2  
 
-Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi. Kalian diminta Luffy untuk membuat website utama dengan mengakses franky.E12.com dengan alias www.franky.E12.com pada folder kaizoku.  
+Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi. Kalian diminta Luffy untuk membuat website utama dengan mengakses *franky.E12.com* dengan alias *www.franky.E12.com* pada folder kaizoku.  
   
 **Pembahasan :**  
 1. Membuka console pada node EniesLobby, setelah mengakses internet dengan melakukan command sebagai berikut.
@@ -145,7 +145,22 @@ echo nameserver 10.35.2.2 > /etc/resolv.conf
 9. Untuk pengecheckan, lakukan `ping franky.E12.com` dan `ping www.franky.E12.com` pada client node.   
 ![(no2)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139472306-6ff3de35-1a4d-4a49-a871-91e4872cb3c8.png)  
   
-## Soal 3
+## Soal 3  
+Setelah itu buat subdomain *super.franky.E12.com* dengan alias *www.super.franky.E12.com* yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.  
+  
+**Pembahasan :**  
+1. Edit file **/etc/bind/kaizoku/franky.e14.com** pada console node EniesLobby lalu tambahkan subdomain untuk *franky.E12.com* yang mengarah ke IP Skypie (10.35.2.2).  
+![(no3)EniesLobby-franky-E12-com](https://user-images.githubusercontent.com/75328763/139473260-0a5209d7-e70f-4bdd-8c48-7935607fbda6.png)  
+Setelah sudah di-save, lakuan restart bind9 menggunakan command:  
+```
+service bind9 restart
+```  
+  
+2. Untuk penge-checkan berhasil tidaknya, lakukan `ping super.franky.e14.com` dan `ping www.super.franky.e14.com` pada node client.  
+![(no3)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139473812-66667445-c7ec-4cad-8c28-d5e1d131e682.png)  
+  
+## Soal 4  
+
 
 
 
