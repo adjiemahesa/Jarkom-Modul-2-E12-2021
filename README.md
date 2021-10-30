@@ -476,14 +476,17 @@ a2ensite general.mecha.franky.E12.com-15500.conf
 5. Langkah selanjutnya kita akan menambahkan port 15000 dan 15500 pada file konfigurasi `ports.conf` dan menambahkannya seperti berikut
 ![image](https://user-images.githubusercontent.com/55140514/139532918-be4d4c19-96d3-4644-8254-ec739b026b63.png)
 
+
 bisa dilihat bahwa kita tambahkan `listen 15000` dan `listen 15500` agar bisa mendapatkan port-port tersebut.
 
 6. kita lakukan testing dengan lynx menuju ke www.general.mecha.franky.E12.com:15000 untuk port 15000 dan www.general.mecha.franky.E12.com:15500 untuk port 155000
 ### Untuk port 15000
 ![image](https://user-images.githubusercontent.com/55140514/139532974-3a30e25f-3b88-497a-8ef7-6d5c8ea0fdda.png)
+
 ![image](https://user-images.githubusercontent.com/55140514/139532992-1ed9a120-fee5-42e0-aa57-7a9e9d4c8be5.png)
 ### Untuk port 15500
 ![image](https://user-images.githubusercontent.com/55140514/139533010-663c680b-b4fd-47af-b848-4d49d649635e.png)
+
 ![image](https://user-images.githubusercontent.com/55140514/139533015-7f96c761-afb0-4945-abba-518d175a2891.png)
 
 ## Soal 15
