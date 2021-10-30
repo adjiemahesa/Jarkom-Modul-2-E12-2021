@@ -337,23 +337,23 @@ Dengan autentikasi username luffy dan password onepiece dan file di /var/www/gen
 
 **Pembahasan :**
 1. Edit file */etc/apache2/sites-available/general.mecha.franky.e14.com.conf*, lalu tambahkan konfigurasi seperti dibawah.
-``
+```
 <Directory /var/www/general.mecha.franky.e14.com>
    AuthType Basic
    AuthName "Private"
    AuthUserFile /etc/apache2/.htpasswd
    Require valid-user
 </Directory>
-``
+```
 [Foto15]
 2. Jalankan command berikut. Command berikut memiliki arti bahwa kita ingin autentikasi baru dengan nama *Luffy*. Masukkan dan confirm *onepiece* sebagai password dari autentikasi. 
-``
+```
 htpasswd -c /etc/apache2/.htpasswd luffy
-``
+```
 3. Restart apache2 untuk menerapkan konfigurasi.
-``
+```
 service apache2 restart
-``
+```
 4. Lakukan testing dengan command *lynx general.mecha.franky.e14.com* dan *lynx wwww.general.mecha.franky.e14.com* pada Alabasta atau Loguetown.
 [Foto15]
 ## Soal 16
@@ -366,23 +366,23 @@ Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melal
 
 **Pembahasan :**
 1. Edit file */etc/apache2/sites-available/super.franky.e14.com.conf*, lalu tambahkan konfigurasi berikut.
-``
+```
 <Directory /var/www/super.franky.e14.com>
    Options +Indexes +FollowSymLinks -MultiViews
    AllowOverride All
 </Directory>
-``
+```
 [foto17]
-2. Jalan kan ``a2enmod rewrite`` untuk mengaktifkan mod rewrite. Kemudian buat file */var/www/seper.franky.e14.com/.htaccess"* dengan menambahkan konfigurasi berikut didalam file.
-``
+2. Jalan kan ```a2enmod rewrite``` untuk mengaktifkan mod rewrite. Kemudian buat file */var/www/seper.franky.e14.com/.htaccess"* dengan menambahkan konfigurasi berikut didalam file.
+```
 RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/public/images/(.*)franky(.*)
 RewriteCond %{REQUEST_URI} !/public/images/franky.png
 RewriteRule /.* http://super.franky.e14.com/public/images/franky.png [L]
-``
+```
 3. Restart apache untuk menerapkan kofigurasi yang telah dibuat.
-``
+```
 service apache2 restart
-``
+```
 4. Lakukan testing lynx *super.franky.e14.com/public/images/punkyfranky.png* pada Loguetown.
 [Foto17]
