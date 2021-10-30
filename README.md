@@ -379,7 +379,11 @@ mv home.html /var/www/super.franky.E12.com
 ```
 ![image](https://user-images.githubusercontent.com/55140514/139531434-4b3060fd-67ba-4a74-b6fc-22e4b88ef4d5.png)
 
-5. Terakhir kita lakukan testing dengan lynx mengarah ke www.super.franky.E12.com
+5. Terakhir kita lakukan testing dengan lynx mengarah ke www.super.franky.E12.com ddengan
+```
+lynx www.super.franky.E12.com
+```
+Dan hasil seperti berikut
 
 ![image](https://user-images.githubusercontent.com/55140514/139531541-056bd1fe-7e35-42cb-b56f-b4f819493099.png)
 
