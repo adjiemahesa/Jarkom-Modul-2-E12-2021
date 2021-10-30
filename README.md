@@ -331,6 +331,24 @@ Setelah itu, lakukan testing `lynx franky.E12.com` dan `lynx www.franky.E12.com`
 ![image](https://user-images.githubusercontent.com/75328763/139491919-753af896-1703-4f48-a277-1f6cacab69a1.png)  
   
 ## Soal 9
+Setelah itu, Luffy juga membutuhkan agar url www.franky.yyy.com/index.php/home dapat menjadi www.franky.yyy.com/home.
+
+**Pembahasan :**  
+1. Untuk merubah dari www.franky.yyy.com/index.php/home menjadi www.franky.yyy.com/home kita akan merubahkan file `/etc/apache2/sites-available/franky.E12.com.conf`. Maka, kita akan mengakses `/etc/apache2/sites-available/franky.E12.com.conf` terlebih dahulu dengan menggunakan nano seperti berikut
+![image](https://user-images.githubusercontent.com/55140514/139530693-f4a6cae8-c5f0-4ffc-8104-d8bcc20beb5a.png)
+
+2. Lalu dalam file tersebut kita edit agar menambahkan bagian
+```
+Alias "/home" "/var/www/franky.E12.com/index.php/home"
+```
+dimana akan mengubah menjadi www.franky.E12.com/home sebagai *Alias*
+![image](https://user-images.githubusercontent.com/55140514/139530775-e96fc78a-9f02-4db3-bbc5-fc51cec39df8.png)
+
+3. Lalu, kita lakukan `service apache2 restart` dan lakukan pengujian menggunakan lynx di *Loguetown* dengan memasukkan www.franky.E12.com/home berhasil atau tidak seperti berikut
+![image](https://user-images.githubusercontent.com/55140514/139530855-023890a4-f2d1-4eef-ae29-d3be6bd692af.png)
+dan hasilnya sebagai berikut
+![image](https://user-images.githubusercontent.com/55140514/139530873-656963af-51e3-4cb1-a266-d83e975e8dbe.png)
+
 
 ## Soal 15
 Dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.e14.
