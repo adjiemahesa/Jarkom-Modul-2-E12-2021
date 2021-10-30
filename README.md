@@ -531,7 +531,7 @@ Dan setiap kali mengakses IP Skypie akan dialihkan secara otomatis ke www.franky
       CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-[image]
+![image](https://raw.githubusercontent.com/adjiemahesa/Jarkom-Modul-2-E12-2021/main/Image/No%20(16)/Capture1.JPG)
 2. Gunakan ```a2enmod rewrite``` untuk meng-enable modul yang telah dikonfigurasi. Lalu, restart service apache dengan menggunakan ```service apache2 restart```.
 3. Kemudian cek apakah IP Skypie sudah di redirect ke franky.E12.com dengan mengetik perintah lynx 10.35.2.4 di Loguetown atau Alabasta.
 
