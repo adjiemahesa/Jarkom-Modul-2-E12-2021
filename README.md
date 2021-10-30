@@ -4,7 +4,7 @@
 
 #### Anggota Kelompok :
  * Rahadian Adjie Mahesa &nbsp;(05111940000221)
- * Luthfi
+ * Ahmad Luthfi Hanif &nbsp; (05111940000179)
  * Afifan Syafaqi Yahya &nbsp; (05111940000234)  
 
 #### Prefix IP 
