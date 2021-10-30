@@ -407,6 +407,21 @@ Dimana **+Indexes** akan merubah foler `/public` yang ada pada `/var/www/super.f
 Tidak hanya itu, Luffy juga menyiapkan error file 404.html pada folder /error untuk mengganti error kode pada apache .
 
 **Pembahasan :**
+1. Pada soal ini diminta agar ketika mengakses web yang tidak ada foldernya maka akan keluar file `404.html` yang ada pada directory `/error`
+2. Untuk melakukan itu maka kita akan menambahkan line berikut pada file konfugurasi `super.franky.E12.com.conf`. line nya adalah sebagai berikut
+```
+ErrorDocument 404 /error/404.html
+```
+Dimana line tersebut akan memanggil file 404.html jika terjadi `Error 404`
+3. Kita testing pada lynx menuju ke super.franky.E12.com/coba dan akan keluar sebagai berikut
+![image](https://user-images.githubusercontent.com/55140514/139532172-7a331943-6e1e-496c-b602-538de71133c2.png)
+
+![image](https://user-images.githubusercontent.com/55140514/139532181-9c37658a-689b-4096-8990-ff848890727e.png)
+
+## Soal 13
+Luffy juga meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host ini bertujuan untuk dapat mengakses file asset www.super.franky.yyy.com/public/js menjadi www.super.franky.yyy.com/js.
+
+**Pembahasan :**
 1. 
 ## Soal 15
 Dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.e14.
