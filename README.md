@@ -391,9 +391,23 @@ Dan hasil seperti berikut
 Akan tetapi, pada folder /public, Luffy ingin hanya dapat melakukan directory listing saja.
 
 **Pembahasan :**
+1. Pada soal ini kita diminta untuk mengaktifkan directory listing pada folder `/public` yang ada di web www.super.franky.E12.com . Untuk itu langkah pertama yang kita lakukan adalah membuka file konfigurasi super.franky.E12.com dan menambahkan
+```
+        <Directory /var/www/super.franky.E12.com/public>
+                Options +Indexes
+        </Directory>
+```
+Dimana **+Indexes** akan merubah foler `/public` yang ada pada `/var/www/super.frankt.E12.com` menjadi directory listed
+![image](https://user-images.githubusercontent.com/55140514/139531799-8d55c188-1ed1-48ab-b045-74470ff0fc5f.png)
+
+2. Lalu, kita lakukan `service apache2 restart` serta testing pada lynx menuju *super.franky.E12.com/public* dan hasil seperti berikut
+![image](https://user-images.githubusercontent.com/55140514/139531828-fc4c0c36-cb03-4753-ab8f-0f7c07ab16da.png)
+
+## Soal 12
+Tidak hanya itu, Luffy juga menyiapkan error file 404.html pada folder /error untuk mengganti error kode pada apache .
+
+**Pembahasan :**
 1. 
-
-
 ## Soal 15
 Dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.e14.
 
