@@ -490,7 +490,7 @@ bisa dilihat bahwa kita tambahkan `listen 15000` dan `listen 15500` agar bisa me
 ![image](https://user-images.githubusercontent.com/55140514/139533015-7f96c761-afb0-4945-abba-518d175a2891.png)
 
 ## Soal 15
-Dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.e14.
+Dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.E12.
 
 **Pembahasan :**
 1. Edit file */etc/apache2/sites-available/general.mecha.franky.E12.com.conf*, lalu tambahkan konfigurasi seperti dibawah.
@@ -531,7 +531,7 @@ Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melal
 </Directory>
 ```
 [foto17]
-2. Jalan kan ```a2enmod rewrite``` untuk mengaktifkan mod rewrite. Kemudian buat file */var/www/seper.franky.e14.com/.htaccess"* dengan menambahkan konfigurasi berikut didalam file.
+2. Jalan kan ```a2enmod rewrite``` untuk mengaktifkan mod rewrite. Kemudian buat file */var/www/seper.franky.E12.com/.htaccess"* dengan menambahkan konfigurasi berikut didalam file.
 ```
 RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/public/images/(.*)franky(.*)
