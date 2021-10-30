@@ -108,9 +108,9 @@ apt-get indtall bind9 -y
   
 3. Lalu mengisi konfigurasi yang berada pada file **franky.E12.com** dengan sintaks sebagai berikut.
 ```
-zone "franky.e14.com" {
+zone "franky.E12.com" {
     type master;
-    file "/etc/bind/kaizoku/franky.e14.com";
+    file "/etc/bind/kaizoku/franky.E12.com";
 };
 ```  
 ![(no2)EniesLobby-named-conf-local](https://user-images.githubusercontent.com/75328763/139470881-a9a1799b-480b-41de-bd88-0a2205529120.png)
@@ -149,14 +149,14 @@ echo nameserver 10.35.2.2 > /etc/resolv.conf
 Setelah itu buat subdomain *super.franky.E12.com* dengan alias *www.super.franky.E12.com* yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.  
   
 **Pembahasan :**  
-1. Edit file **/etc/bind/kaizoku/franky.e14.com** pada console node EniesLobby lalu tambahkan subdomain untuk *franky.E12.com* yang mengarah ke IP Skypie (10.35.2.2).  
+1. Edit file **/etc/bind/kaizoku/franky.E12.com** pada console node EniesLobby lalu tambahkan subdomain untuk *franky.E12.com* yang mengarah ke IP Skypie (10.35.2.2).  
 ![(no3)EniesLobby-franky-E12-com](https://user-images.githubusercontent.com/75328763/139473260-0a5209d7-e70f-4bdd-8c48-7935607fbda6.png)  
 Setelah sudah di-save, lakuan restart bind9 menggunakan command:  
 ```
 service bind9 restart
 ```  
   
-2. Untuk penge-checkan berhasil tidaknya, lakukan `ping super.franky.e14.com` dan `ping www.super.franky.e14.com` pada node client.  
+2. Untuk penge-checkan berhasil tidaknya, lakukan `ping super.franky.E12.com` dan `ping www.super.franky.E12.com` pada node client.  
 ![(no3)Loguetown-ping-test](https://user-images.githubusercontent.com/75328763/139473812-66667445-c7ec-4cad-8c28-d5e1d131e682.png)  
   
 ## Soal 4  
@@ -229,8 +229,8 @@ Lalu lakukan restart bind9 denagn command `service bind9 restart`.
 &nbsp;* Matikan service pada EniesLobby dengan menggunakan command `service bind9 stop`.  
 &nbsp;* Buka console pada node client kemudian tambahkan nameserver Water7 pada file */etc/resolv.conf*.
 ```
-nameserver 10.36.2.2
-nameserver 10.36.2.3
+nameserver 10.35.2.2
+nameserver 10.35.2.3
 ```  
 &nbsp;* Lalu lakukan `ping franky.E12.com` pada node client.  
   
@@ -301,9 +301,9 @@ cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/fr
 ```  
 Lalu edit file */etc/apache2/sites-available/franky.E12.com.conf* dan tambahkan kondigurasi sebagai berikut:  
 ```
-ServerName franky.e14.com
-ServerAlias www.franky.e14.com
-DocumentRoot /var/www/franky.e14.com
+ServerName franky.E12.com
+ServerAlias www.franky.E12.com
+DocumentRoot /var/www/franky.E12.com
 ```  
 ![(no8)Skypie-franky-E12-com-conf](https://user-images.githubusercontent.com/75328763/139490000-811a00c5-2c49-4665-930d-fff2389a4d72.png)  
 Lalu aktifkan konfigurasi **franky.E12.com.** tersebut dengan command:  
