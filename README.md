@@ -503,7 +503,7 @@ Dengan autentikasi username luffy dan password onepiece dan file di /var/www/gen
 </Directory>
 ```
 
-[image](https://raw.githubusercontent.com/adjiemahesa/Jarkom-Modul-2-E12-2021/main/Image/No%20(15)/15_1.JPG)
+![image](https://raw.githubusercontent.com/adjiemahesa/Jarkom-Modul-2-E12-2021/main/Image/No%20(15)/15_1.JPG)
 2. Jalankan command berikut. Command berikut memiliki arti bahwa kita ingin autentikasi baru dengan nama *Luffy*. Masukkan dan confirm *onepiece* sebagai password dari autentikasi. 
 ```
 htpasswd -c /etc/apache2/.htpasswd luffy
