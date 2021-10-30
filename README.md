@@ -517,7 +517,24 @@ service apache2 restart
 Dan setiap kali mengakses IP Skypie akan dialihkan secara otomatis ke www.franky.yyy.com.
 
 **Pembahasan :**
-1.
+1. Pada client Skypie, lakukan cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites dengan konfigurasi sebagai berikut.
+```
+<VirtualHost *:80>
+      ServerAdmin webmaster@localhost
+      DocumentRoot /var/www/html
+
+      RewriteEngine On
+      RewriteCond %{HTTP_HOST} !^franky.E12.com$
+      RewriteRule /.* http://franky.E12.com/ [R]
+
+      ErrorLog ${APACHE_LOG_DIR}/error.log
+      CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+[image]
+2. Gunakan ```a2enmod rewrite``` untuk meng-enable modul yang telah dikonfigurasi. Lalu, restart service apache dengan menggunakan ```service apache2 restart```.
+3. Kemudian cek apakah IP Skypie sudah di redirect ke franky.E12.com dengan mengetik perintah lynx 10.35.2.4 di Loguetown atau Alabasta.
+
 ## Soal 17
 Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melalui website www.super.franky.yyy.com, dan dikarenakan pengunjung web server pasti akan bingung dengan randomnya images yang ada, maka Franky juga meminta untuk mengganti request gambar yang memiliki substring “franky” akan diarahkan menuju franky.png.
 
