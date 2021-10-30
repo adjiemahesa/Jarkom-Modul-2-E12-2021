@@ -346,8 +346,43 @@ dimana akan mengubah menjadi www.franky.E12.com/home sebagai *Alias*
 
 3. Lalu, kita lakukan `service apache2 restart` dan lakukan pengujian menggunakan lynx di *Loguetown* dengan memasukkan www.franky.E12.com/home berhasil atau tidak seperti berikut
 ![image](https://user-images.githubusercontent.com/55140514/139530855-023890a4-f2d1-4eef-ae29-d3be6bd692af.png)
+
 dan hasilnya sebagai berikut
+
 ![image](https://user-images.githubusercontent.com/55140514/139530873-656963af-51e3-4cb1-a266-d83e975e8dbe.png)
+
+## Soal 10
+Setelah itu, pada subdomain www.super.franky.yyy.com, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada /var/www/super.franky.yyy.com
+
+**Pembahasan :**
+1. Langkah pertama kita membuat file `super.franky.E12.com.conf` terlebih dahulu dengan melakukan copy dari `000-default.conf` ke `super.franky.E12.com.conf`
+![image](https://user-images.githubusercontent.com/55140514/139531197-d264288b-80a4-4961-b3b9-82feef5c2d76.png)
+2. Lalu kita buka file tersebut dan merubahkan isi seperti membuat domain seperti di nomor 8, disini kita akan mengisikan dengan berikut
+```
+ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/super.franky.E12.com
+        ServerName super.franky.E12.com
+        ServerAlias www.super.franky.E12.com
+```
+![image](https://user-images.githubusercontent.com/55140514/139531281-1c3cf2a3-2645-4ebb-bece-5f2aea8c74fa.png)
+3. Lalu, kita enable kan konfigurasi tersebut dengan `a2ensite`
+4. setelah itu kita lakukan restart apache dan melakukan aksi copy file yang ada dari folder `super.franky` yang ada di directory `Praktikum-Modul-2-Jarkom-main` agar website mempunyai isi yang ada pada folder super.franky
+```
+cd Prakitikum-Modul-2-Jarkom-main
+cp -r super.franky /var/www/super.franky.E12.com
+cd /var/www/super.franky.E12.com
+mv index.php /var/www/super.franky.E12.com
+mv home.html /var/www/super.franky.E12.com
+```
+![image](https://user-images.githubusercontent.com/55140514/139531434-4b3060fd-67ba-4a74-b6fc-22e4b88ef4d5.png)
+5. Terakhir kita lakukan testing dengan lynx mengarah ke www.super.franky.E12.com
+![image](https://user-images.githubusercontent.com/55140514/139531541-056bd1fe-7e35-42cb-b56f-b4f819493099.png)
+
+## Soal 11
+Akan tetapi, pada folder /public, Luffy ingin hanya dapat melakukan directory listing saja.
+
+**Pembahasan :**
+1. 
 
 
 ## Soal 15
