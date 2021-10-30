@@ -493,15 +493,16 @@ bisa dilihat bahwa kita tambahkan `listen 15000` dan `listen 15500` agar bisa me
 Dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.e14.
 
 **Pembahasan :**
-1. Edit file */etc/apache2/sites-available/general.mecha.franky.e14.com.conf*, lalu tambahkan konfigurasi seperti dibawah.
+1. Edit file */etc/apache2/sites-available/general.mecha.franky.E12.com.conf*, lalu tambahkan konfigurasi seperti dibawah.
 ```
-<Directory /var/www/general.mecha.franky.e14.com>
+<Directory /var/www/general.mecha.franky.E12.com>
    AuthType Basic
    AuthName "Private"
    AuthUserFile /etc/apache2/.htpasswd
    Require valid-user
 </Directory>
 ```
+
 [Foto15]
 2. Jalankan command berikut. Command berikut memiliki arti bahwa kita ingin autentikasi baru dengan nama *Luffy*. Masukkan dan confirm *onepiece* sebagai password dari autentikasi. 
 ```
@@ -511,7 +512,7 @@ htpasswd -c /etc/apache2/.htpasswd luffy
 ```
 service apache2 restart
 ```
-4. Lakukan testing dengan command *lynx general.mecha.franky.e14.com* dan *lynx wwww.general.mecha.franky.e14.com* pada Alabasta atau Loguetown.
+4. Lakukan testing dengan command *lynx general.mecha.franky.E12.com* dan *lynx wwww.general.mecha.franky.E12.com* pada Alabasta atau Loguetown.
 [Foto15]
 ## Soal 16
 Dan setiap kali mengakses IP Skypie akan dialihkan secara otomatis ke www.franky.yyy.com.
@@ -522,9 +523,9 @@ Dan setiap kali mengakses IP Skypie akan dialihkan secara otomatis ke www.franky
 Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melalui website www.super.franky.yyy.com, dan dikarenakan pengunjung web server pasti akan bingung dengan randomnya images yang ada, maka Franky juga meminta untuk mengganti request gambar yang memiliki substring “franky” akan diarahkan menuju franky.png.
 
 **Pembahasan :**
-1. Edit file */etc/apache2/sites-available/super.franky.e14.com.conf*, lalu tambahkan konfigurasi berikut.
+1. Edit file */etc/apache2/sites-available/super.franky.E12.com.conf*, lalu tambahkan konfigurasi berikut.
 ```
-<Directory /var/www/super.franky.e14.com>
+<Directory /var/www/super.franky.E12.com>
    Options +Indexes +FollowSymLinks -MultiViews
    AllowOverride All
 </Directory>
@@ -535,11 +536,12 @@ Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melal
 RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/public/images/(.*)franky(.*)
 RewriteCond %{REQUEST_URI} !/public/images/franky.png
-RewriteRule /.* http://super.franky.e14.com/public/images/franky.png [L]
+RewriteRule /.* http://super.franky.E12.com/public/images/franky.png [L]
 ```
 3. Restart apache untuk menerapkan kofigurasi yang telah dibuat.
 ```
 service apache2 restart
 ```
-4. Lakukan testing lynx *super.franky.e14.com/public/images/punkyfranky.png* pada Loguetown.
+4. Lakukan testing lynx *super.franky.E12.com/public/images/punkyfranky.png* pada Loguetown.
+
 [Foto17]
