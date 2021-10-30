@@ -529,7 +529,7 @@ Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melal
    AllowOverride All
 </Directory>
 ```
-[foto17]
+![foto17](https://raw.githubusercontent.com/adjiemahesa/Jarkom-Modul-2-E12-2021/main/Image/No%20(17)/No%20(17).JPG)
 2. Jalan kan ```a2enmod rewrite``` untuk mengaktifkan mod rewrite. Kemudian buat file */var/www/seper.franky.E12.com/.htaccess"* dengan menambahkan konfigurasi berikut didalam file.
 ```
 RewriteEngine On
@@ -542,5 +542,3 @@ RewriteRule /.* http://super.franky.E12.com/public/images/franky.png [L]
 service apache2 restart
 ```
 4. Lakukan testing lynx *super.franky.E12.com/public/images/punkyfranky.png* pada Loguetown.
-
-[Foto17]
