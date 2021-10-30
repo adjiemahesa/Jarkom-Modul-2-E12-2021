@@ -503,7 +503,7 @@ Dengan autentikasi username luffy dan password onepiece dan file di /var/www/gen
 </Directory>
 ```
 
-[Foto15]
+[image](https://raw.githubusercontent.com/adjiemahesa/Jarkom-Modul-2-E12-2021/main/Image/No%20(15)/15_1.JPG)
 2. Jalankan command berikut. Command berikut memiliki arti bahwa kita ingin autentikasi baru dengan nama *Luffy*. Masukkan dan confirm *onepiece* sebagai password dari autentikasi. 
 ```
 htpasswd -c /etc/apache2/.htpasswd luffy
@@ -513,7 +513,6 @@ htpasswd -c /etc/apache2/.htpasswd luffy
 service apache2 restart
 ```
 4. Lakukan testing dengan command *lynx general.mecha.franky.E12.com* dan *lynx wwww.general.mecha.franky.E12.com* pada Alabasta atau Loguetown.
-[Foto15]
 ## Soal 16
 Dan setiap kali mengakses IP Skypie akan dialihkan secara otomatis ke www.franky.yyy.com.
 
