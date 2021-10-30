@@ -422,7 +422,70 @@ Dimana line tersebut akan memanggil file 404.html jika terjadi `Error 404`
 Luffy juga meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host ini bertujuan untuk dapat mengakses file asset www.super.franky.yyy.com/public/js menjadi www.super.franky.yyy.com/js.
 
 **Pembahasan :**
-1. 
+1. Langkah pertama yang kita lakukan adalah mengakses file konfigurasi `super.franky` dengan `nano /etc/apache2/sites-available/super.franky.E12.com.conf `
+2. Lalu pada file kita akan mengganti alias seperti pada nomor 9 dengan menggunakan line berikut
+```
+Alias "/js" "/var/www/super.franky.E12.com/public/js"
+```
+3. Lalu, dilakukan `service apache2 restart` dan testing dengan lynx yg diarahkan ke `super.franky.E12.com/js`
+![image](https://user-images.githubusercontent.com/55140514/139532481-6f38cfdb-4f05-4a7b-84a4-3169dcedbf66.png)
+
+4. Hasil nya sebagai berikut
+![image](https://user-images.githubusercontent.com/55140514/139532501-2b1dca4e-9dba-4a36-912d-42984d54c860.png)
+
+## Soal 14
+Dan Luffy meminta untuk web www.general.mecha.franky.yyy.com hanya bisa diakses dengan port 15000 dan port 15500
+
+**Pembahasan :**
+1. Untuk melakukan ini maka akan dibutuhkan untuk membuat 2 file konfigurasi untuk www.general.mecha.franky.E12.com dimana satu untuk port 15000 dan satu lagi untuk port 15500. File tersebut akan kita namakan `general.mecha.franky.E12.com-15000.conf` dan `general.mecha.franky.E12.com-15500.conf`
+2. **Untuk file yang port 15000** kita akan membuat file konfigurasi seperti pada nomor-nomor sebelumnya
+```
+cd /etc/apache2/sites-available
+cp 000-default.conf general.mecha.franky.E12.com-15000.conf
+```
+Lalu, diakses file konfigurasi-nya dan dirubah isinya sesuai untuk general.mecha.franky.E12.com serta merubahkan port dengan port 15000
+```
+VirtualHost *:15000>
+```
+```
+ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/general.mecha.franky.E12.com
+        ServerName general.mecha.franky.E12.com
+        ServerAlias www.general.mecha.franky.E12.com
+```
+3. Lalu, **Kita buatkan file untuk port 15500** sama seperti diatas caranya dan menambahkan port 15500 serta isi yang sesuai
+```
+cd /etc/apache2/sites-available
+cp 000-default.conf general.mecha.franky.E12.com-15500.conf
+```
+```
+VirtualHost *:15500>
+```
+```
+ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/general.mecha.franky.E12.com
+        ServerName general.mecha.franky.E12.com
+        ServerAlias www.general.mecha.franky.E12.com
+```
+4. Setelah dibuat maka kedua file konfigurasi maka akan enable kan website nya dengan `a2ensite` seperti berikut
+```
+cd /etc/apache2/sites-available
+a2ensite general.mecha.franky.E12.com-15000.conf
+a2ensite general.mecha.franky.E12.com-15500.conf
+```
+5. Langkah selanjutnya kita akan menambahkan port 15000 dan 15500 pada file konfigurasi `ports.conf` dan menambahkannya seperti berikut
+![image](https://user-images.githubusercontent.com/55140514/139532918-be4d4c19-96d3-4644-8254-ec739b026b63.png)
+
+bisa dilihat bahwa kita tambahkan `listen 15000` dan `listen 15500` agar bisa mendapatkan port-port tersebut.
+
+6. kita lakukan testing dengan lynx menuju ke www.general.mecha.franky.E12.com:15000 untuk port 15000 dan www.general.mecha.franky.E12.com:15500 untuk port 155000
+### Untuk port 15000
+![image](https://user-images.githubusercontent.com/55140514/139532974-3a30e25f-3b88-497a-8ef7-6d5c8ea0fdda.png)
+![image](https://user-images.githubusercontent.com/55140514/139532992-1ed9a120-fee5-42e0-aa57-7a9e9d4c8be5.png)
+### Untuk port 15500
+![image](https://user-images.githubusercontent.com/55140514/139533010-663c680b-b4fd-47af-b848-4d49d649635e.png)
+![image](https://user-images.githubusercontent.com/55140514/139533015-7f96c761-afb0-4945-abba-518d175a2891.png)
+
 ## Soal 15
 Dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.e14.
 
