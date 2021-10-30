@@ -474,8 +474,8 @@ a2ensite general.mecha.franky.E12.com-15000.conf
 a2ensite general.mecha.franky.E12.com-15500.conf
 ```
 5. Langkah selanjutnya kita akan menambahkan port 15000 dan 15500 pada file konfigurasi `ports.conf` dan menambahkannya seperti berikut
-![image](https://user-images.githubusercontent.com/55140514/139532918-be4d4c19-96d3-4644-8254-ec739b026b63.png)
 
+![image](https://user-images.githubusercontent.com/55140514/139532918-be4d4c19-96d3-4644-8254-ec739b026b63.png)
 
 bisa dilihat bahwa kita tambahkan `listen 15000` dan `listen 15500` agar bisa mendapatkan port-port tersebut.
 
